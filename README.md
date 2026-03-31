@@ -14,9 +14,12 @@ Kullanıcılar ana sayfada ürünleri inceleyebilir, menü sayfasından kategori
 - Next.js 16 (App Router)
 - React 19
 - Tailwind CSS 4
+- AOS (Animate On Scroll)
 - Firebase Firestore
 - Zustand
 - Resend
+- Swiper (carousel/slider)
+- shadcn/ui + Radix UI
 
 ## Kurulum
 
@@ -64,6 +67,9 @@ NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_firebase_messaging_sender_id
 NEXT_PUBLIC_FIREBASE_APP_ID=your_firebase_app_id
 ```
 
+Not: İletişim formunda gönderici/alıcı mail adresleri şu an app/api/contact/route.js içinde sabit tanımlıdır. İhtiyaca göre bu dosyadan güncelleyebilirsiniz.
+
+
 ## Komutlar
 
 ```bash
@@ -77,8 +83,10 @@ npm run lint    # eslint kontrolü
 
 ```text
 app/                  # sayfalar, route grupları ve API route'lar
-components/           # ortak bileşenler ve UI parçaları
+app/providers/        # uygulama seviyesindeki provider'lar (AOS vb.)
+app/api/contact/      # iletişim formu mail gönderim endpoint'i
+components/           # ortak bileşenler, layout parçaları ve UI
 lib/                  # Firebase ve veri çekme yardımcıları
-store/                # Zustand store yapısı
+store/                # Zustand cart store yapısı
 public/images/        # görseller
 ```
