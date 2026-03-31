@@ -89,7 +89,7 @@
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.87 0.00 0);
+  --primary: oklch(0.87 0 0);
   --primary-foreground: oklch(0.205 0 0);
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
@@ -126,4 +126,131 @@
   html {
     @apply font-sans;
   }
+}
+
+body {
+  background-color: #121212 !important;
+}
+
+/* HEADER COFFEE APP TITLE ANIMATION */
+
+.typing-text {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid white;
+  width: 0;
+  animation:
+    typing 3s steps(10, end) infinite,
+    blink 0.8s step-end infinite;
+}
+
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  40% {
+    width: 10ch;
+  }
+  60% {
+    width: 10ch;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+/* HEADER CART ANIMATION */
+
+/* Sepet ikonu sallanma */
+.cart-button:hover svg {
+  animation: wiggle 0.5s ease;
+}
+
+/* Neon gölge animasyonu */
+.cart-button {
+  animation: neon-glow 3s ease-in-out infinite;
+}
+
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(8deg);
+  }
+  75% {
+    transform: rotate(-4deg);
+  }
+}
+
+
+@keyframes neon-glow {
+  0%,
+  100% {
+    box-shadow:
+      0 0 8px rgba(0, 255, 255, 0.6),
+      0 0 20px rgba(0, 255, 255, 0.3);
+  }
+  33% {
+    box-shadow:
+      0 0 8px rgba(255, 0, 255, 0.6),
+      0 0 20px rgba(255, 0, 255, 0.3);
+  }
+  66% {
+    box-shadow:
+      0 0 8px rgba(0, 255, 128, 0.6),
+      0 0 20px rgba(0, 255, 128, 0.3);
+  }
+}
+
+/* CAROUSEL OKLAR */
+.group .swiper-button-prev,
+.group .swiper-button-next {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  color: white !important; /* okların rengi */
+  z-index: 1000 !important;
+}
+
+.group:hover .swiper-button-prev,
+.group:hover .swiper-button-next {
+  opacity: 1;
+  color: white !important; /* okların rengi */
+}
+.group .swiper-button-prev::after,
+.group .swiper-button-next::after {
+  font-size: 8px !important;
+  color: white !important;
+}
+.swiper-pagination-bullet {
+  background: #121212 !important; /* pasif noktalar */
+  opacity: 0.4 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: white !important; /* aktif nokta */
+  opacity: 1 !important;
+}
+/*  */
+@keyframes bounce-x {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(4px);
+  }
+}
+
+.animate-bounce-x {
+  animation: bounce-x 1s ease-in-out infinite;
 }
